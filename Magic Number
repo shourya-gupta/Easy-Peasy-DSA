@@ -1,0 +1,33 @@
+Question: https://practice.geeksforgeeks.org/problems/magic-number4431/1
+Solution:
+
+class Solution{
+    static long nthMagicNo(int n){
+        //complete the function here
+        
+        // So, we know one thing that is - when we & our number with 1 - we get last digit - so we can use it for purpose
+        
+        // also right shifting the binary of the number will help us to proceed one by one
+        
+        long ans = 0;
+        int i = 1;
+        
+        while(n>0)
+        {
+            // we will check if the last digit is 1 then multiply it with appropriate power of 5, 
+            // else, if it was 0 - it would eventually after multiplication give us 0. So, we can leave it
+            
+            if((int)(n&1) == 1)
+            {
+                ans = (ans + (long)Math.pow(5, i))%1000000007;
+            }
+            
+            i++;
+            
+            // Now we will keep our n right - shifted everytime this loop runs
+            n = n>>1; 
+        }
+        
+        return ans%1000000007;
+    }
+}
