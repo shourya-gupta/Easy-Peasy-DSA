@@ -1,0 +1,18 @@
+Question: https://leetcode.com/problems/number-of-1-bits/
+
+Solution:
+public class Solution {
+    // you need to treat n as an unsigned value
+    public int hammingWeight(int n) {  
+        
+        // Here we can use the formula we know for finding out the LSB that is set
+        
+        int count = 0;
+        while(n!=0)
+        {
+            n = n & (n-1);
+            count++;
+        }
+        return count;
+    }
+}
