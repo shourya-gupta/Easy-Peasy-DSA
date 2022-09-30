@@ -1,0 +1,24 @@
+Question: https://practice.geeksforgeeks.org/problems/odd-or-even3618/1
+
+Code:
+
+class Solution{
+    static String oddEven(int N){
+        // code here
+        
+        // The most optimised way to check this is by using bit manipulation
+        // Each number is represented in the form of binary - and if a given number has last bit as 1 - then it is odd, otherwise even
+        // to check the last bit, we just have to do its & with 1 - if it results in 0 then even, else odd
+        
+        N = N&1;
+        
+        if(N==0)
+        {
+            return "even";
+        }
+        else
+        {
+            return "odd";
+        }
+    }
+}
