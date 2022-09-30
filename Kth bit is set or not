@@ -1,0 +1,41 @@
+Question: https://practice.geeksforgeeks.org/problems/check-whether-k-th-bit-is-set-or-not-1587115620/1
+
+Code:
+
+class CheckBit
+{
+    // Function to check if Kth bit is set or not.
+    static boolean checkKthBit(int n, int k)
+    {
+        // Your code here
+        
+        // Always try to take up a question, with the help of an example
+        // We have 1010 and want to check if 1st bit is set or not
+        //  1010
+        // &
+        //  0010
+        // =0010
+        // Let us take one more example, 1010, 2nd bit
+        //  1010
+        // &
+        //  0100
+        // =0000
+        
+        // So what we need to find is - the mask or the number by which we should & it, and if the result is != 0, then set bit, otherwise not
+        
+        // To find this mask - we can left shift 1 by k times
+        
+        k = 1<<k;
+        n = n&k;
+        
+        if(n!=0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+}
