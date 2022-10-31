@@ -1,0 +1,44 @@
+Question: https://practice.geeksforgeeks.org/problems/second-largest3735/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=second-largest
+
+Solution:
+
+class Solution {
+    int print2largest(int arr[], int n) {
+        // code here
+        
+        if(n == 1)
+        {
+            return -1;
+        }
+        
+        int max = Integer.MIN_VALUE;
+        int max_second = Integer.MIN_VALUE;
+        
+        for(int i=0;i<n;i++)
+        {
+            if(arr[i] > max)
+            {
+                //this is helping us to store the last max element, when we are about to find the next max element
+                max_second = max;
+                max = arr[i];
+            }
+            
+            //"if": reason is when the max element appears before the second max element 
+            // for eg: arr = [1,5,4,3,2]
+            if(arr[i] != max && arr[i] > max_second)
+            {
+                max_second = arr[i];
+            }
+        }
+        
+        // and this loop is for the case like: arr = [10,10,10]
+        if(max_second == Integer.MIN_VALUE)
+        {
+            return -1;
+        }
+        else
+        {
+            return max_second;
+        }
+    }
+}
